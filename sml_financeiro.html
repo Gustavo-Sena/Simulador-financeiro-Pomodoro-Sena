@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador financeiro</title>
+</head>
+
+<body background="https://www.infoescola.com/wp-content/uploads/2011/01/tomate_345187874.jpg">
+    <span style="font-size: larger; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+        <h1>Pomodoro</h1> 
+
+        Quantos tomates são enviados para transporte? <input type="number" id="input_tomates"> <br><br>
+
+        Quanto custa o Kg do seu tomate? <input type="number" id="input_kg"> <br><br>
+
+        Quantos tomates você perde por transporte, por conta de temperatura e umidade? <input type="number" id="input_perda"> <br><br>
+
+        <button onclick="analisar()">Analisar</button>
+
+        <div id="div_perda">
+
+        </div>
+
+    </span>
+</body>
+</html>
+<script>
+    function analisar(){
+        var tomates = Number(input_tomates.value)
+        var kg = Number(input_kg.value)
+        var perda = Number(input_perda.value)
+        
+        var porcentage_perdida = (perda * 100) / tomates
+        var valor_perdido = kg * perda
+
+        var tecnologia = (perda * 10) / tomates
+        
+        div_perda.innerHTML = `<br> Você perda <u><b>${porcentage_perdida}% </b></u> por transporte, deixando de ganhar <u><b> R$${valor_perdido}</b></u> nesse transporte. <br>` 
+        div_perda.innerHTML += `Com a tecnologia Pomodoro ao invés de você perder <u><b>${porcentage_perdida}% <b></u>, esse valor cairá para <u><b>${tecnologia}% </b></u> `
+        
+    }
+</script>
